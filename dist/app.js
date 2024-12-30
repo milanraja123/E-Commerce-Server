@@ -32,9 +32,15 @@ export const stripe = new Stripe(stripeKey);
 const app = express();
 app.use(express.json());
 app.use(morgan("dev"));
+// app.use(
+//   cors({
+//     origin: [clientURL],
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 app.use(cors({
-    origin: [clientURL],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: '*',
     credentials: true,
 }));
 app.get("/", (req, res) => {
